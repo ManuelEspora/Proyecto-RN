@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import HomeNav from './src/navigation/Home';
+import MainNav from './src/navigation/MainNav';
 import Register from './src/screens/Register';
 import Login from './src/screens/Login';
 
