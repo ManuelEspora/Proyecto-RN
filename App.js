@@ -3,17 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import MainNav from './src/navigation/MainNav';
+import HomeNav from './src/navigation/Home';
 import Register from './src/screens/Register';
 import Login from './src/screens/Login';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator()
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen 
+        <Stack.Screen 
         name='Register' 
         component={Register}
         options={{
@@ -35,7 +35,8 @@ export default function App() {
         }}
         />
       </Stack.Navigator>
-    </NavigationContainer>    
+    </NavigationContainer>  
+    
   );
 }
 

@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
-import { db } from '../firebase/config'
+import { db, auth } from '../firebase/config'
 import Posts from '../components/Posts'
 
 export default class Feed extends Component {
@@ -13,7 +13,7 @@ export default class Feed extends Component {
     }
 
     componentDidMount(){
-        console.log(auth.currentUser.email)
+      console.log(auth.currentUser.email)
         db.collection('posts')
         .where('owner','==', auth.currentUser.email)
         .limit(2)
@@ -31,15 +31,15 @@ export default class Feed extends Component {
             })
         })
     }
-    render() {
-        return (
-          <View>
-            <Text>Feed</Text>
-            <Posts
-                data={this.state.posts}
-                navigation={this.props.navigation}
-            />
-          </View>
-        )
-      }
-    }
+  render() {
+    return (
+      <View>
+        <Text>Feed</Text>
+        <Posts
+            data={this.state.posts}
+            navigation={this.props.navigation}
+        />
+      </View>
+    )
+  }
+}

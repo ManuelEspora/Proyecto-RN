@@ -4,8 +4,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { AntDesign } from '@expo/vector-icons';
 import FunctionalitiesNav from './FunctionalitiesNav';
 import Feed from '../screens/Feed';
-import Profile from '../screens/Profile'
-import NewPosts from '../screens/NewPosts';
+//import Profile from '../screens/Profile'
+//import NewPosts from '../screens/NewPosts';
 
 const Tab = createBottomTabNavigator()
 
