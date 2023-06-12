@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { db } from '../firebase/config'
 import Posts from '../components/Posts'
 
-export default class Feed extends Component {
+export default class Home extends Component {
 
     constructor(props){
         super(props)

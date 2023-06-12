@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { AntDesign } from '@expo/vector-icons';
 import FunctionalitiesNav from './FunctionalitiesNav';
-import Feed from '../screens/Feed';
+import Home from '../screens/Home';
 //import Profile from '../screens/Profile'
 //import NewPosts from '../screens/NewPosts';
 
@@ -13,7 +13,7 @@ export default function HomeNav() {
     return(
         <Tab.Navigator>
             <Tab.Screen
-            name='Feed'
+            name='Home'
             component={FunctionalitiesNav}
             options={{
                 headerShown:false,

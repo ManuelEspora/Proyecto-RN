@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Feed from '../screens/Feed'
+import Home from '../screens/Home'
 import Comments from '../screens/Comments'
 const Stack = createNativeStackNavigator()
 
@@ -9,7 +9,7 @@ function FunctionalitiesNav() {
     return (
       <Stack.Navigator>
         <Stack.Screen
-            name='Feed'
+            name='Home'
             component={Feed}
         />
         <Stack.Screen
