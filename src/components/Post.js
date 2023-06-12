@@ -3,7 +3,7 @@ import {FontAwesome} from '@expo/vector-icons'
 import React, { Component } from 'react'
 import { db, auth } from '../firebase/config'
 import firebase from 'firebase'
-import { render } from 'react-dom'
+//import { render } from 'react-dom'
 
 export default class Post extends Component {
 
