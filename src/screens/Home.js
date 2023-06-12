@@ -1,116 +1,46 @@
-import React, {Component} from 'react'
-import {
-    View, 
-    Text, 
-    TouchableOpacity, 
-    StyleSheet,
-    Image,
-    FlatList,
-    ActivityIndicator
-} from 'react-native'
+import { Text, View } from 'react-native'
+import React, { Component } from 'react'
+import { db } from '../firebase/config'
+import Posts from '../components/Posts'
 
-const arrayDeDatos = [
-    {
-        id:1,
-        nombre: 'Pepe',
-        img: 'https://thumbs.dreamstime.com/b/sentada-del-perrito-de-labrador-30817211.jpg'
-    },
-    {
-        id:2,
-        nombre: 'Pepe2',
-        img: 'https://thumbs.dreamstime.com/b/sentada-del-perrito-de-labrador-30817211.jpg'
-    },
-    {
-        id:3,
-        nombre: 'Pepe3',
-        img: 'https://thumbs.dreamstime.com/b/sentada-del-perrito-de-labrador-30817211.jpg'
-    },
-]
+export default class Feed extends Component {
 
-class Home extends Component{
     constructor(props){
         super(props)
+        this.state = {
+            posts: []
+        }
     }
 
-    ejecutarConAccionCorta(){
-        console.log('El cliente nos pidio algo')
+    componentDidMount(){
+        console.log(auth.currentUser.email)
+        db.collection('posts')
+        .where('owner','==', auth.currentUser.email)
+        .orderBy
+        .limit(2)
+        .onSnapshot( docs => {
+            let arrDocs=[]
+
+            docs.forEach(doc => arrDocs.push({
+                id: doc.id,
+                data:doc.data()
+            }))
+            console.log(arrDocs)
+
+            this.setState({
+                posts: arrDocs
+            })
+        })
     }
-
-    ejecutarConAccionLarga(){
-        console.log('El cliente nos pidio algo')
-    }
-
-    render(){
-        return(
-            /*<View>
-                <TouchableOpacity onPress={()=> this.props.navigation.navigate('Register')}>
-                    <Text> Mandame al registro por favor</Text>
-                </TouchableOpacity>
-                <Text>
-                    Aqui vamos a crear una Home copada
-                </Text>
-                <TouchableOpacity
-                style={styles.button}
-                onPress={()=> this.ejecutarConAccionCorta()}
-                onLongPress={()=> this.ejecutarConAccionLarga()}
-                >
-                    <Text style={styles.textoBtn}>
-                        Algun día sere Boton
-                    </Text>
-                </TouchableOpacity>
-                <ActivityIndicator
-                    size={45}
-                    color='#c3c3c3'
-                />
-                <Image
-                    source={{uri: 'https://thumbs.dreamstime.com/b/sentada-del-perrito-de-labrador-30817211.jpg'}}
-                    style={styles.img}
-                    resizeMode='contain'
-                />
-
-                <FlatList
-                    data={arrayDeDatos}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({item}) =>
-                    <View>
-                        <Text>{item.nombre}</Text>                        <Image
-                        source={{uri: item.img}}
-                        style={styles.img}
-                        resizeMode='contain'
-                        />
-                    </View>  
-                    }
-                />
-            </View>*/
-
-
-            <View>
-                <Text>
-                    prueba
-                </Text>
-            </View>
+    render() {
+        return (
+          <View>
+            <Text>Feed</Text>
+            <Posts
+                data={this.state.posts}
+                navigation={this.props.navigation}
+            />
+          </View>
         )
+      }
     }
-}
-
-
-/*
-const styles = StyleSheet.create({
-    button:{
-        backgroundColor: 'green',
-        borderRadius: 20,
-        borderWidth:2,
-        textAlign:'center',
-        padding:10
-    },
-    textoBtn:{
-        color:'white'
-    },
-    img: {
-        height:350
-    }
-   
-})
-*/
-
-export default Home
