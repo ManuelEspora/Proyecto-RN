@@ -10,7 +10,7 @@ function FunctionalitiesNav() {
       <Stack.Navigator>
         <Stack.Screen
             name='Home'
-            component={Feed}
+            component={Home}
         />
         <Stack.Screen
             name='Comments'
