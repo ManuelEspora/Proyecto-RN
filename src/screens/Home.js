@@ -1,9 +1,9 @@
-import { Text, View } from 'react-native'
+import { Text, View, StyleSheet } from 'react-native'
 import React, { Component } from 'react'
 import { db, auth } from '../firebase/config';
 import Posts from '../components/Posts'
 
-export default class HomeNav extends Component {
+class HomeNav extends Component {
 
     constructor(props){
         super(props)
@@ -31,8 +31,8 @@ export default class HomeNav extends Component {
     }
     render() {
         return (
-          <View>
-            <Text>Feed</Text>
+          <View style={styles.container}>
+            <Text style={styles.titulo}> Inicio </Text>
             <Posts
                 data={this.state.posts}
                 navigation={this.props.navigation}
@@ -41,3 +41,18 @@ export default class HomeNav extends Component {
         )
       }
     }
+
+
+const styles = StyleSheet.create({
+    container:{
+        backgroundColor: 'ligthblue'
+    },
+    titulo:{
+        fontStyle:'italic',
+        fontWeight: 500,
+        fontSize: 20,
+        textAlign: 'center',
+      },
+
+})
+export default HomeNav

@@ -63,7 +63,7 @@ export default class Register extends Component {
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder='Desscribe una biografía'
+                        placeholder='Describe una biografía para tu usuario'
                         onChangeText={text => this.setState({biografia: text})}
                         value={this.state.biografia}
                     />

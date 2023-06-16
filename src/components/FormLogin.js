@@ -46,8 +46,9 @@ class FormLogin extends Component {
 
         </TouchableOpacity>
         <View>
-            <Text>
-              Aún no tienes una cuenta?
+          <br></br>
+            <Text style={styles.titulo2}>
+              Si aún no tienes una cuenta
             </Text>
             <TouchableOpacity onPress={()=> this.props.navigation.navigate('Register')}>
               <Text style={styles.buttons}>Registrate</Text>
@@ -75,6 +76,11 @@ titulo:{
     fontWeight: 500,
     fontSize: 20,
     textAlign: 'center',
+  },
+  titulo2:{
+    fontStyle:'italic',
+    fontWeight: 500,
+    fontSize: 15,
   },
 buttons:{
     marginTop:32,

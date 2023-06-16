@@ -1,8 +1,9 @@
-import { Text, View, FlatList } from 'react-native'
+import { Text, View, FlatList, StyleSheet } from 'react-native'
 import React, { Component } from 'react'
-//import CommentsForm from '../components/CommentsForm'
+import ComentariosForm from '../components/ComentariosForm'
 import { db } from '../firebase/config';
-export default class Comments extends Component {
+
+class Comments extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -21,14 +22,26 @@ export default class Comments extends Component {
   render() {
     return (
       <View>
-        <Text>Aqui vamos a cargar todos los comentarios del posteo</Text>
+        <Text style={styles.titulo}>Comentarios</Text>
          <FlatList
             data={this.state.data.comments}
             keyExtractor={item => item.createdAt.toString()}
             renderItem={({item}) => <Text>{item.comentario}</Text>}
         />
-        <CommentsForm idPost={this.props.route.params.id} />
+        <ComentariosForm idPost={this.props.route.params.id} />
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  titulo:{
+    fontStyle:'italic',
+        fontWeight: 500,
+        fontSize: 20,
+        textAlign: 'center',
+        backgroundColor: 'lightblue'
+  }
+})
+
+export default Comments

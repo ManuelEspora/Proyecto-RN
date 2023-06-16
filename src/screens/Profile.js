@@ -50,10 +50,10 @@ class Profile extends Component {
 
   }
 
-  /*signOut(){
+  signOut(){
     auth.signOut()
     this.props.navigation.navigate('Login')
-  }*/
+  }
   
   render(){
     return (
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:'center',
     paddingHorizontal:300,
-    backgroundColor: 'lightgrey',
+    backgroundColor: 'lightblue',
   },
   buttons:{
     alignItems: 'center',

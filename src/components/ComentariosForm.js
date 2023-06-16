@@ -25,7 +25,7 @@ export default class CommentsForm extends Component {
 
   render() {
     return (
-      <View>
+      <View style = {styles.view}>
         <TextInput
         keyboardType='default'
         style = {styles.input}
@@ -33,10 +33,11 @@ export default class CommentsForm extends Component {
         value={this.state.comentario}
         placeholder='Comentar'
         />
+        <br></br>
         <TouchableOpacity
         onPress={()=> this.crearComentario(this.state.comentario)}
         >
-            <Text>Enviar</Text>
+            <Text style = {styles.titulo2}>Enviar</Text>
         </TouchableOpacity>
       </View>
     )
@@ -44,8 +45,21 @@ export default class CommentsForm extends Component {
 }
 
 const styles = StyleSheet.create({
+    view:{
+        backgroundColor: 'lightblue'
+    },
     input:{
-        borderWidth:1,
-        borderColor:'red'
-    }
+        borderWidth:2,
+        borderColor: 'green',
+        marginTop: 24,
+        height:30,
+        padding:5,
+        backgroundColor: 'white'
+    },
+    titulo2:{
+        fontStyle:'italic',
+        fontWeight: 500,
+        fontSize: 20,
+        textAlign: 'center',
+      },
 })
