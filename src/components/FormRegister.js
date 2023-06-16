@@ -1,7 +1,7 @@
 import { Text, View, TextInput, TouchableOpacity, StyleSheet} from 'react-native'
 import React, { Component } from 'react'
 //import ImagenPerfil from './ImagenPerfil'
-import {auth, db} from '../firebase/config'
+import {auth, db} from '../firebase/config';
 
 export default class Register extends Component {
 
@@ -27,8 +27,8 @@ export default class Register extends Component {
                     biografia:biografia,
                     createdAt:Date.now()
                     })
-                )
-        })}
+                )}
+                )}
 
     actualizarStateFotoDePerfil(url){
         this.setState({fotoDePerfil: url})
@@ -38,9 +38,6 @@ export default class Register extends Component {
         return (
             <View>
                 {
-                    this.state.registrado ?
-                    <ImagenPerfil actualizador={(url)=> this.actualizarStateFotoDePerfil(url)}/>
-                    :
                     <>
                     <Text style={styles.titulo2}>Formulario de registro</Text>
                         <TextInput

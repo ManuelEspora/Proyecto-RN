@@ -3,9 +3,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { AntDesign } from '@expo/vector-icons';
 import FunctionalitiesNav from './FunctionalitiesNav';
-import Home from '../screens/Home';
-//import Profile from '../screens/Profile'
-//import NewPosts from '../screens/NewPosts';
+import NewPost from '../screens/NewPost'
+import Profile from '../screens/Profile'
+
 
 const Tab = createBottomTabNavigator()
 
@@ -22,8 +22,8 @@ export default function HomeNav() {
             }}
             />
             <Tab.Screen
-            name='NewPosts'
-            component={NewPosts}
+            name='NewPost'
+            component={NewPost}
             options={{
                 headerShown:false,
                 tabBarIcon: () =>

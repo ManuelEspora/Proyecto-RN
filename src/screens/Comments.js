@@ -1,7 +1,7 @@
 import { Text, View, FlatList } from 'react-native'
 import React, { Component } from 'react'
 //import CommentsForm from '../components/CommentsForm'
-import { db } from '../firebase/config'
+import { db } from '../firebase/config';
 export default class Comments extends Component {
     constructor(props){
         super(props)

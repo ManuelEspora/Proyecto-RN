@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
-import { db } from '../firebase/config'
+import { db, auth } from '../firebase/config';
 import Posts from '../components/Posts'
 
 export default class HomeNav extends Component {
@@ -15,9 +15,6 @@ export default class HomeNav extends Component {
     componentDidMount(){
         console.log(auth.currentUser.email)
         db.collection('posts')
-        .where('owner','==', auth.currentUser.email)
-        .orderBy
-        .limit(2)
         .onSnapshot( docs => {
             let arrDocs=[]
 
