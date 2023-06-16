@@ -6,6 +6,7 @@ import FunctionalitiesNav from './FunctionalitiesNav';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile'
 import NewPosts from '../screens/NewPosts';
+import Buscador from '../screens/Buscador';
 
 const Tab = createBottomTabNavigator()
 
@@ -38,6 +39,15 @@ export default function HomeNav() {
                 tabBarIcon: () =>
                 <AntDesign name='profile' color='blue' size={22} />
             }}
+            />
+            <Tab.Screen
+                name='Buscador'
+                component={Buscador}
+                options={{
+                    headerShown:false,
+                    tabBarIcon: () =>
+                    <AntDesign name='buscador' color='blue' size={22} />
+                }}
             />
         </Tab.Navigator>
     )
