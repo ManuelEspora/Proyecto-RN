@@ -54,7 +54,10 @@ class Post extends Component {
             <View>
                 <Image
                     source={{uri: this.props.data.data.foto}}
-                    style={StyleSheet.img}/>
+                    style={StyleSheet.img}
+                    resizeMode='cover'
+                    />
+                    
                 <Text>{this.props.data.data.descripcion}</Text>
                 {
                     this.state.isLiked ?
