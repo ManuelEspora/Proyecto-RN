@@ -1,4 +1,4 @@
-import  {Text, View, StyleSheet, Image,  TouchableOpacity} from 'react-native'
+import  {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import React, {Component} from 'react'
 import {Camera } from "expo-camera"
 import { storage } from '../firebase/config';
@@ -46,7 +46,7 @@ class Camara extends Component {
             ref.put(image)                                                       //a
             .then (() => {
                 ref.getDownloadURL ()
-                .then((url) => this.props.cuandoSubaLaFoto(url) )
+                .then((url) => this.props.actualizarEstadoFoto(url) )
                 .catch(err => console.log(err))
 
             })
@@ -98,13 +98,13 @@ class Camara extends Component {
                         <TouchableOpacity 
                             onPress={()=> this.descartarFoto()}>
                             <Text>
-                                Rechazar
+                                Descartar
                             </Text>
                         </TouchableOpacity>
                     </View> :
                     
                     <Text>
-                        No tenemos permiso para mostrar la foto
+                        No tenemos permiso para usar tu cámara :/
                     </Text>
 
 
@@ -141,4 +141,4 @@ const styles = StyleSheet.create({
       },
 })
 
-export default Camara
+export default Camara 

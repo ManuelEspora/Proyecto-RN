@@ -64,7 +64,7 @@ class NewPosts extends Component {
                             comments:this.state.comments
                         })}
                     >
-                        <Text>Enviar el posteo</Text>
+                        <Text>Enviar posteo</Text>
                     </TouchableOpacity>
                 </>
                 

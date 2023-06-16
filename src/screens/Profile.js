@@ -34,7 +34,7 @@ class Profile extends Component {
   render(){
     return (
       <View>
-        <Text>Aqui va a ir toda la información y acciones de nuestro Profile</Text>
+        <Text>Profile</Text>
         <Profiles navigation={this.props.navigation} />
         <FlatList
           data={this.state.usuarios}
