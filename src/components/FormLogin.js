@@ -19,20 +19,23 @@ class FormLogin extends Component {
 
   render() {
     return (
-      <View>
-        <TextInput
+      <View style={styles.container}>
+        <Text style={styles.titulo}>Inicia Sesión</Text>        
+        <TextInput 
+            style={styles.input}
             placeholder='Ingresa tu email'
             keyboardType='email-address'
             value={this.state.email}
             onChangeText={(text)=> this.setState({email: text})}
-            style={styles.input}
+            
         />
         <TextInput
+            style={styles.input}
             placeholder='Ingresa tu password'
             keyboardType='default'
             value={this.state.password}
             onChangeText={(text)=> this.setState({password: text})}
-            style={styles.input}
+            
             secureTextEntry={true}
         />
         <TouchableOpacity
@@ -56,17 +59,32 @@ class FormLogin extends Component {
 }
 
 const styles = StyleSheet.create({
-    input:{
-        borderWidth:1,
-        borderColor:'red',
-        marginVertical: 16,
-        padding:10
-    },
-    buttons:{
-        backgroundColor:'red',
-        padding:16,
-        borderRadius:10
-    }
+  container:{
+    backgroundColor: 'lightblue'
+},
+input:{
+    borderWidth:2,
+    borderColor: 'green',
+    marginTop: 24,
+    height:30,
+    padding:5,
+    backgroundColor: 'white'
+},
+titulo:{
+    fontStyle:'italic',
+    fontWeight: 500,
+    fontSize: 20,
+    textAlign: 'center',
+  },
+buttons:{
+    marginTop:32,
+    borderWidth:2,
+    borderColor: 'green',
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius:20,
+    textAlign:'center',
+},
 })
 
 export default FormLogin

@@ -36,7 +36,7 @@ export default class Register extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 {
                     <>
                     <Text style={styles.titulo2}>Formulario de registro</Text>
@@ -57,13 +57,13 @@ export default class Register extends Component {
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder='Digita tu nombre de usuario'
+                        placeholder='Escribe tu nombre de usuario'
                         onChangeText={text => this.setState({nombredeusuario: text})}
                         value={this.state.nombredeusuario}
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder='Describe una mini bio'
+                        placeholder='Desscribe una biografía'
                         onChangeText={text => this.setState({biografia: text})}
                         value={this.state.biografia}
                     />
@@ -80,12 +80,16 @@ export default class Register extends Component {
 }
 
 const styles = StyleSheet.create({
+    container:{
+        backgroundColor: 'lightblue'
+    },
     input:{
-        borderWidth:1,
-        borderColor: '#3d3d3d',
+        borderWidth:2,
+        borderColor: 'green',
         marginTop: 24,
-        height:24,
-        padding:5
+        height:30,
+        padding:5,
+        backgroundColor: 'white'
     },
     titulo2:{
         fontStyle:'italic',
@@ -93,11 +97,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
       },
-    btn:{
+    buttons:{
         marginTop:32,
-        backgroundColor: '#54d0e0',
+        borderWidth:2,
+        borderColor: 'green',
+        backgroundColor: 'white',
         padding: 10,
         borderRadius:20,
+        textAlign:'center',
     },
     btnText:{
         textAlign:'center',
