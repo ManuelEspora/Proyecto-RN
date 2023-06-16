@@ -23,10 +23,15 @@ class Comments extends Component {
     return (
       <View>
         <Text style={styles.titulo}>Comentarios</Text>
-         <FlatList
+         <FlatList 
+            style = {styles.comentario}
             data={this.state.data.comments}
             keyExtractor={item => item.createdAt.toString()}
-            renderItem={({item}) => <Text>{item.comentario}</Text>}
+            renderItem={({item}) => 
+            <View>
+            <Text style={styles.owner}>{item.owner}: {item.comentario}</Text>
+            </View>
+            }
         />
         <ComentariosForm idPost={this.props.route.params.id} />
       </View>
@@ -41,6 +46,9 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         backgroundColor: 'lightblue'
+  },
+  comentario: {
+    backgroundColor: 'lightblue'
   }
 })
 
