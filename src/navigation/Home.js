@@ -5,8 +5,10 @@ import { AntDesign } from '@expo/vector-icons';
 import FunctionalitiesNav from './FunctionalitiesNav';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile'
+import {FontAwesome} from '@expo/vector-icons';
 import NewPosts from '../screens/NewPosts';
 import Buscador from '../screens/Buscador';
+import {Ionicons} from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator()
 
@@ -37,7 +39,7 @@ export default function HomeNav() {
             options={{
                 headerShown:false,
                 tabBarIcon: () =>
-                <AntDesign name='profile' color='blue' size={22} />
+                <FontAwesome name='user' color='blue' size={22} />
             }}
             />
             <Tab.Screen
@@ -46,7 +48,7 @@ export default function HomeNav() {
                 options={{
                     headerShown:false,
                     tabBarIcon: () =>
-                    <AntDesign name='buscador' color='blue' size={22} />
+                    <Ionicons name='search-sharp' color='blue' size={22} />
                 }}
             />
         </Tab.Navigator>

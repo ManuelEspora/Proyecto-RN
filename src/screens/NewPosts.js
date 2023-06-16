@@ -37,7 +37,7 @@ class NewPosts extends Component {
             createdAt: Date.now(),
         })
         .then((resp)=>{
-            this.props.navigation.navigate('Feed')
+            this.props.navigation.navigate('Home')
         })
         .catch(err => console.log(err))
     }
