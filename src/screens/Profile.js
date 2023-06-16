@@ -1,4 +1,148 @@
-import { View, Text, FlatList  } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
+import React, {Component} from 'react'
+//import Profiles from '../components/Profiles'
+import { auth, db } from '../firebase/config'
+//import Post from '../../components/Post/Post'
+
+class Profile extends Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      allPosts: [],
+      id: '',
+      infoUsuario: {},
+    }
+  }
+
+  componentDidMount(){
+    db.collection('posts')
+      .where('owner', '==', auth.currentUser.email)
+      .orderBy('createdAt', 'desc')
+      .onSnapshot(docs => {
+      let posts = []
+      docs.forEach(doc => {
+        posts.push({
+          id: doc.id,
+          data: doc.data()
+        })
+      })
+
+      this.setState({
+        allPosts: posts
+      }, () => console.log(this.state.allPosts))
+
+
+
+
+    })
+
+    db.collection('users')
+      .where('owner', '==', auth.currentUser.email)
+      .onSnapshot(doc => {
+        doc.forEach(doc =>
+          this.setState({
+            id: doc.id,
+            infoUsuario: doc.data()
+          }))
+      }), () => console.log(this.state.infoUsuario)
+
+
+
+  }
+
+  /*signOut(){
+    auth.signOut()
+    this.props.navigation.navigate('Login')
+  }*/
+  
+  render(){
+    return (
+      <View style={styles.container}>
+        <>
+          <div>
+            <Text>Perfil</Text>
+            <li>
+              <ul><Text> {this.state.infoUsuario.usuario} </Text></ul>
+              <ul><Text> Biografia: {this.state.infoUsuario.bio}</Text></ul>
+              <ul><Text> Email: {auth.currentUser.email} </Text> </ul>
+              <ul><Text> Posteos: {this.state.allPosts.length} </Text> </ul>
+              <ul><Text> Activo desde: {auth.currentUser.metadata.creationTime} </Text> </ul>
+            </li>
+
+          </div>
+
+        
+        
+        
+        
+        
+        </>
+
+
+
+
+      
+      <Text>aca van los posteos del usuario</Text>
+      <TouchableOpacity onPress={() => this.signOut()}>
+        <Text style={styles.buttons}>Cerrar sesión</Text>
+      </TouchableOpacity>
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  profile:{
+      fontSize: 50,  
+  },
+  container:{
+    flex:1,
+    justifyContent:'center',
+    paddingHorizontal:300,
+    backgroundColor: 'lightgrey',
+  },
+  buttons:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius:6,
+    borderWidth:2,
+    padding:8,
+    backgroundColor: 'grey',
+  },
+})
+
+
+export default Profile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import { View, Text, FlatList  } from 'react-native'
 import React, {Component} from 'react'
 import Profiles from '../components/Profiles'
 import {db} from '../firebase/config'
@@ -46,4 +190,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile
+export default Profile*/
