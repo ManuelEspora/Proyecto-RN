@@ -52,9 +52,12 @@ class Post extends Component {
       render(){
         return (
             <View>
+                <TouchableOpacity>
+                  
+                </TouchableOpacity>
                 <Image
                     source={{uri: this.props.data.data.foto}}
-                    style={StyleSheet.img}
+                    //style={StyleSheet.img}
                     resizeMode='cover'
                     />
                     
