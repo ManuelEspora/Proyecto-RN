@@ -60,13 +60,12 @@ class Profile extends Component {
       <View style={styles.container}>
         <>
           <div>
-            <Text>Perfil</Text>
+            <Text style={styles.titulo}> Hola: {auth.currentUser.email} </Text>
             <li>
-              <ul><Text> {this.state.infoUsuario.usuario} </Text></ul>
-              <ul><Text> Biografia: {this.state.infoUsuario.bio}</Text></ul>
-              <ul><Text> Email: {auth.currentUser.email} </Text> </ul>
-              <ul><Text> Posteos: {this.state.allPosts.length} </Text> </ul>
-              <ul><Text> Activo desde: {auth.currentUser.metadata.creationTime} </Text> </ul>
+              <ul><Text style={styles.titulo1}>Nombre de Usuario:{this.state.infoUsuario.usuario} </Text></ul>
+              <ul><Text style={styles.titulo1}> Biografia: {this.state.infoUsuario.bio}</Text></ul>
+              <ul><Text style={styles.titulo1}> Posteos: {this.state.allPosts.length} </Text> </ul>
+              <ul><Text style={styles.titulo1}> Activo desde: {auth.currentUser.metadata.creationTime} </Text> </ul>
             </li>
 
           </div>
@@ -98,8 +97,19 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     justifyContent:'center',
-    paddingHorizontal:300,
+    paddingHorizontal:320,
     backgroundColor: 'lightblue',
+  },
+  titulo:{
+    fontStyle:'italic',
+    fontWeight: 500,
+    fontSize: 25,
+    textAlign: 'center',
+  },
+  titulo1:{
+    fontStyle:'italic',
+    fontWeight: 500,
+    fontSize: 15,
   },
   buttons:{
     alignItems: 'center',

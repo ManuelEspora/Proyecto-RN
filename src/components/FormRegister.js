@@ -1,7 +1,7 @@
 import { Text, View, TextInput, TouchableOpacity, StyleSheet} from 'react-native'
 import React, { Component } from 'react'
 //import ImagenPerfil from './ImagenPerfil'
-import {auth, db} from '../firebase/config';
+import {db, auth} from '../firebase/config';
 
 export default class Register extends Component {
 
@@ -19,13 +19,11 @@ export default class Register extends Component {
 
     registrarUsuario(nombredeusuario, email, password, biografia){
         auth.createUserWithEmailAndPassword(email, password)
-        .then(()=> {                
+        .then( data => {                
             return(
                 db.collection('users').add({
-                    email:email,
-                    nombredeusuario:nombredeusuario,
-                    biografia:biografia,
-                    createdAt:Date.now()
+                    owner:auth.currentUser.email,
+                    createdAt: Date.now(),
                     })
                 )}
                 )}
@@ -81,7 +79,10 @@ export default class Register extends Component {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: 'lightblue'
+        flex: 1,
+        justifyContent:'center',
+        paddingHorizontal:300,
+        backgroundColor: 'lightblue',
     },
     input:{
         borderWidth:2,

@@ -8,7 +8,8 @@ class Buscador extends Component {
         super(props)
         this.state={
             busqueda:'',
-            usuarios:[]
+            usuarios:[], 
+            resultados: []
         }
     }
 
@@ -23,22 +24,24 @@ class Buscador extends Component {
                         data:doc.data()
                     })
                 })
-                this.setState({usuarios:arrUsers})
+                this.setState({
+                    usuarios:arrUsers,
+                    resultados:arrUsers
+                })
             }
         )
     }
 
     filtro(filtrador){
-        let arrFiltrado = 
-            this.state.usuarios
-            .filter(usuario => 
-                usuario.data.owner.toLowerCase().includes(filtrador.toLowerCase ()))
-                this.setState({usuarios:arrFiltrado})
-        }   
+        let arrFiltrado = this.state.resultados 
+        .filter(usuario =>
+          usuario.data.owner.toLowerCase().includes(filtrador.toLowerCase()))
+          this.setState({usuarios:arrFiltrado})
+      }
 
     render(){
         return(
-            <View style={styles.views}>
+            <View style={styles.container}>
                 <Text style={styles.titulo}> Buscador</Text>
                 <TextInput 
                     style={styles.input}
@@ -56,8 +59,11 @@ class Buscador extends Component {
 }
 
 const styles = StyleSheet.create ({
-    views: {
-        backgroundColor: 'lightblue'
+    container:{
+        flex: 1,
+        justifyContent:'center',
+        paddingHorizontal:300,
+        backgroundColor: 'lightblue',
     },
     input:{
         borderWidth:2,
