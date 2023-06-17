@@ -40,10 +40,10 @@ class Camara extends Component {
     usarImagen(){
         console.log("usar foto");
         fetch(this.state.url)
-        .then(imagenBinario => imagenBinario.blob())
+        .then(res => res.blob())
         .then(image =>{
             let ref = storage.ref(`fotos/${Date.now()}.jpg`)
-            ref.put(image)                                                       //a
+            ref.put(image)                                                       
             .then (() => {
                 ref.getDownloadURL ()
                 .then((url) => this.props.actualizarEstadoFoto(url) )
@@ -51,7 +51,7 @@ class Camara extends Component {
 
             })
         })
-        .then()
+        //.then()
         .catch(error => console.log(error))
     }
 

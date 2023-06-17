@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     titulo:{
         fontStyle:'italic',
         fontWeight: 500,
-        fontSize: 20,
+        fontSize: 30,
         textAlign: 'center',
       },
 

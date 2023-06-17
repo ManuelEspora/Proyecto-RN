@@ -60,12 +60,12 @@ class Profile extends Component {
       <View style={styles.container}>
         <>
           <div>
-            <Text style={styles.titulo}> Hola: {auth.currentUser.email} </Text>
+            <Text style={styles.titulo}> Hola, {auth.currentUser.email}!</Text>
             <li>
-              <ul><Text style={styles.titulo1}>Nombre de Usuario:{this.state.infoUsuario.nombredeusuario} </Text></ul>
+              <ul><Text style={styles.titulo1}>Nombre de Usuario: {this.state.infoUsuario.nombredeusuario} </Text></ul>
               <ul><Text style={styles.titulo1}> Biografia: {this.state.infoUsuario.biografia}</Text></ul>
               <ul><Text style={styles.titulo1}> Posteos: {this.state.allPosts.length} </Text> </ul>
-              <ul><Text style={styles.titulo1}> Activo desde: {auth.currentUser.metadata.creationTime} </Text> </ul>
+              <ul><Text style={styles.titulo1}> Usuario desde: {auth.currentUser.metadata.creationTime} </Text> </ul>
             </li>
 
           </div>
@@ -81,7 +81,7 @@ class Profile extends Component {
 
 
       
-      <Text>aca van los posteos del usuario</Text>
+  
       <TouchableOpacity onPress={() => this.signOut()}>
         <Text style={styles.buttons}>Cerrar sesión</Text>
       </TouchableOpacity>
@@ -92,7 +92,7 @@ class Profile extends Component {
 
 const styles = StyleSheet.create({
   profile:{
-      fontSize: 50,  
+      fontSize: 60,  
   },
   container:{
     flex:1,
@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
   buttons:{
+    
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius:6,

@@ -21,17 +21,17 @@ class NewPosts extends Component {
         })
     }
 
-    actualizarEstadoFoto(urlFoto){
+    actualizarEstadoFoto(url){
         this.setState({
-            foto: urlFoto
+            foto: url
         })
     }
 
-    crearPosteo({descripcion, foto, likes, comments}){
+    crearPosteo({descripcion,  likes, comments}){
         db.collection('posts').add({
             owner: auth.currentUser.email,
             descripcion: descripcion,
-            foto: foto,
+            foto: this.state.foto,
             likes: likes,
             comments: comments,
             createdAt: Date.now(),
@@ -59,7 +59,7 @@ class NewPosts extends Component {
                     <TouchableOpacity
                         onPress={()=> this.crearPosteo({
                             descripcion:this.state.descripcion,
-                            foto:this.state.foto,
+                            foto: this.state.foto,
                             likes: this.state.likes,
                             comments:this.state.comments
                         })}
